@@ -1,18 +1,16 @@
 # 🛡️ AWS GuardDuty Automation with Terraform
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Terraform](https://img.shields.io/badge/Terraform-v1.0+-blue)
-![AWS](https://img.shields.io/badge/AWS-GuardDuty-orange)
-![CloudOps](https://img.shields.io/badge/CloudOps-Active-green)
-
-Automated AWS security monitoring infrastructure deployed via Terraform. This project demonstrates enterprise-grade CloudOps practices by automating GuardDuty threat detection across AWS accounts with repeatable, version-controlled infrastructure.
+[![GitHub Workflow](https://img.shields.io/github/actions/workflow/status/charles-bucher/cloudOps-guardDuty-automation/terraform-apply.yml?branch=main)](https://github.com/charles-bucher/cloudOps-guardDuty-automation/actions) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![AWS](https://img.shields.io/badge/AWS-CloudOps-orange)](https://aws.amazon.com/)
+[![Terraform](https://img.shields.io/badge/Terraform-IaC-blue)](https://www.terraform.io/)
+[![GitHub](https://img.shields.io/badge/GitHub-VersionControl-black)](https://github.com/charles-bucher/cloudOps-guardDuty-automation)
 
 ---
 
 ## 📋 Table of Contents
-
-- [What This Does](#what-this-does)
-- [Why This Matters](#why-this-matters)
+- [What This Does](#-what-this-does)
+- [Why This Matters](#-why-this-matters)
 - [Tech Stack](#-tech-stack)
 - [Prerequisites](#-prerequisites)
 - [Quick Start](#-quick-start)
@@ -28,60 +26,50 @@ Automated AWS security monitoring infrastructure deployed via Terraform. This pr
 ---
 
 ## 🎯 What This Does
-
-- Enables AWS GuardDuty automatically across accounts.
-- Eliminates manual console setup.
-- Deploys repeatable infrastructure using Terraform.
-- Provides a portfolio-ready CloudOps/DevSecOps demonstration.
+Automates deployment of AWS GuardDuty using Terraform, eliminating manual configuration and creating a reproducible, secure monitoring environment.
 
 **Key Deliverables:**
-
 - ✅ GuardDuty Enabled
 - ✅ Infrastructure as Code (Terraform)
-- ✅ Repeatable Deployments
-- ✅ Security Baseline
-- ✅ Portfolio-Ready
+- ✅ Repeatable Deployments across accounts
+- ✅ Security Baseline for incident response
+- ✅ Portfolio-ready CloudOps/DevSecOps demonstration
 
 ---
 
 ## 💡 Why This Matters
-
 **Business Value:**
-
-- Reduces security setup time from hours to minutes.
-- Eliminates human error with IaC.
-- Scales across multiple AWS accounts.
-- Full audit trail via Git history.
+- Reduces manual security setup time
+- Eliminates human error
+- Scales across multiple AWS accounts
+- Provides an audit trail via Git
 
 **Technical Skills Demonstrated:**
-
-- Terraform / IaC
-- AWS GuardDuty, CloudWatch, IAM
-- DevSecOps and CloudOps practices
-- Git and version control
-- Incident response automation
+- Infrastructure as Code (Terraform)
+- AWS Security (GuardDuty, CloudWatch)
+- CI/CD Automation (GitHub Actions)
+- Cloud Operations & Incident Response
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology       | Purpose                  | Why It's Used                         |
-|-----------------|--------------------------|--------------------------------------|
-| Terraform        | Infrastructure as Code   | Standardized cloud automation        |
-| AWS GuardDuty    | Threat Detection         | Monitors AWS accounts for threats    |
-| AWS CloudWatch   | Logging & Monitoring     | Captures security findings           |
-| GitHub Actions   | CI/CD Pipeline           | Automates deployments                |
-| Git              | Version Control          | Tracks infrastructure changes        |
+| Technology         | Purpose                  | Why It's Used                        |
+|-------------------|-------------------------|-------------------------------------|
+| Terraform          | Infrastructure as Code   | Industry-standard cloud automation  |
+| AWS GuardDuty      | Threat Detection         | Monitors AWS accounts for threats   |
+| AWS CloudWatch     | Logging & Monitoring     | Captures security events            |
+| GitHub Actions     | CI/CD Pipeline           | Automates deployment workflow       |
+| Git                | Version Control          | Tracks infrastructure changes       |
 
 ---
 
 ## 📦 Prerequisites
-
-- AWS Account with admin access
+- AWS account with admin access
 - AWS CLI configured
 - Terraform v1.0+
 - Git installed
-- IAM permissions for GuardDuty, CloudWatch, IAM role creation
+- IAM Permissions: GuardDuty, CloudWatch, IAM role creation  
 
 ```json
 {
@@ -99,131 +87,113 @@ Automated AWS security monitoring infrastructure deployed via Terraform. This pr
   ]
 }
 🚀 Quick Start
-Clone the repository:
-
 bash
 Copy code
+# Clone repository
 git clone https://github.com/charles-bucher/cloudOps-guardDuty-automation.git
 cd cloudOps-guardDuty-automation
-Configure AWS credentials:
 
-bash
-Copy code
+# Configure AWS credentials
 aws configure
-# or export AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
-Initialize Terraform:
 
-bash
-Copy code
+# Initialize Terraform
 terraform init
-Preview changes:
 
-bash
-Copy code
+# Preview deployment
 terraform plan
-Deploy:
 
-bash
-Copy code
+# Apply Terraform configuration
 terraform apply
-Verify GuardDuty:
+# Type 'yes' when prompted
 
-bash
-Copy code
+# Verify GuardDuty is enabled
 aws guardduty list-detectors
-Clean up (optional):
 
-bash
-Copy code
+# Optional cleanup
 terraform destroy
 🏗️ Architecture
-markdown
+pgsql
 Copy code
-AWS Account
- ┌──────────────┐        ┌───────────────┐
- │ Terraform    │──────▶ │ AWS GuardDuty │
- │ Automation   │        │ Detector      │
- └──────────────┘        └───────┬───────┘
-                                 │
-                                 ▼
-                           CloudWatch Logs
-                           Security Events
-Terraform manages the full infrastructure and deployment workflow.
+┌─────────────────────────────────────┐
+│             AWS Account             │
+│                                     │
+│  ┌──────────────┐   ┌─────────────┐ │
+│  │ Terraform    │──▶│ GuardDuty   │ │
+│  │ Automation   │   │ Detector    │ │
+│  └──────────────┘   └─────┬───────┘ │
+│                           │           │
+│                           ▼           │
+│                    CloudWatch Logs    │
+│                    Security Events    │
+└─────────────────────────────────────┘
+Terraform manages the entire infrastructure end-to-end.
 
 🎬 Visual Walkthrough
-
-
-
+Step	Screenshot
+GitHub Push	
+Terraform Plan	
+Terraform Apply	
+GuardDuty Enabled	
 
 🗂️ Project Structure
 bash
 Copy code
 cloudOps-guardDuty-automation/
 │
-├── .github/workflows/       # GitHub Actions CI/CD
-├── screenshots/             # Visual docs
-├── main.tf                  # Core Terraform config
-├── variables.tf             # Input variables
-├── outputs.tf               # Output values
-├── terraform.tfvars.example # Example variables
+├── .github/workflows/terraform-apply.yml
+├── screenshots/
+│   ├── GD_01.png
+│   ├── GD_02.png
+│   ├── GD_03.png
+│   └── GD_04.png
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── terraform.tfvars.example
 ├── .gitignore
 ├── LICENSE
 └── README.md
 📚 What I Learned
-Terraform state management and provider configuration
+Terraform state management & provider configuration
 
-AWS IAM permissions and best practices
+AWS IAM least-privilege setup
 
 Infrastructure version control
 
-Idempotent deployments
+Security-first cloud automation
 
-Security-first CloudOps principles
+Troubleshooting IAM & Terraform conflicts
 
 🔮 Future Enhancements
-Short Term:
+SNS notifications & Lambda integration for findings
 
-SNS Alerts for findings
+Multi-region GuardDuty deployment
 
-Lambda incident response
+Export findings to S3 & EventBridge integration
 
-Multi-region GuardDuty
+Terraform Cloud state management
 
-Terraform modules
-
-Long Term:
-
-Export findings to S3
-
-EventBridge integration
-
-Terraform Cloud remote state
-
-Cost optimization
-
-CloudWatch/Grafana dashboards
+Dashboards for metrics & monitoring
 
 🤝 Contributing
-Fork repo
+Fork the repo
 
-Create feature branch
+Create a feature branch
 
 Commit changes
 
-Push branch
+Push & open a PR
 
-Open Pull Request
-
-Areas for contribution: Terraform optimization, AWS security integrations, documentation, testing strategies.
+Suggestions welcome: Terraform optimization, AWS security integrations, documentation improvements
 
 📄 License
-MIT License - see LICENSE file
+MIT License - see LICENSE for details.
 
 📞 Connect With Me
 GitHub: charles-bucher
 
 LinkedIn: Charles Bucher
 
-yaml
+vbnet
 Copy code
 
